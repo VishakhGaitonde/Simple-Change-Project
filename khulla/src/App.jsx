@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 const DENOMINATIONS = [500, 200, 100, 50, 20, 10, 5, 2, 1];
@@ -207,7 +208,9 @@ function App() {
       color: #345a43; font-size: 12px; font-weight: 800;
     }
     .fields {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 19px;
     }
     .field label {
       display: block; font-size: 12px; font-weight: 650;
@@ -305,7 +308,6 @@ function App() {
       .app { padding: 22px 13px 35px; }
       .topbar { margin-bottom: 29px; }
       .card { padding: 19px; border-radius: 18px; }
-      .fields { grid-template-columns: 1fr; gap: 19px; }
       .combo-grid { grid-template-columns: 1fr; }
       .combo { padding: 14px; }
       .combo .combo-total { margin-bottom: 9px; }
@@ -363,27 +365,6 @@ function App() {
 
               <div className="fields">
                 <div className="field">
-                  <label htmlFor="bill">Amount to be paid</label>
-                  <div className="input-wrap">
-                    <span className="currency">₹</span>
-                    <input
-                      id="bill"
-                      type="number"
-                      min="0"
-                      max="100000"
-                      step="1"
-                      placeholder="0"
-                      value={bill}
-                      onChange={(e) => {
-                        setBill(e.target.value);
-                        setError("");
-                      }}
-                    />
-                  </div>
-                  <div className="helper">Total bill amount</div>
-                </div>
-
-                <div className="field">
                   <label htmlFor="received">Cash received</label>
                   <div className="input-wrap">
                     <span className="currency">₹</span>
@@ -402,6 +383,27 @@ function App() {
                     />
                   </div>
                   <div className="helper">Amount handed by customer</div>
+                </div>
+
+                <div className="field">
+                  <label htmlFor="bill">Amount to be paid</label>
+                  <div className="input-wrap">
+                    <span className="currency">₹</span>
+                    <input
+                      id="bill"
+                      type="number"
+                      min="0"
+                      max="100000"
+                      step="1"
+                      placeholder="0"
+                      value={bill}
+                      onChange={(e) => {
+                        setBill(e.target.value);
+                        setError("");
+                      }}
+                    />
+                  </div>
+                  <div className="helper">Total bill amount</div>
                 </div>
               </div>
             </section>
